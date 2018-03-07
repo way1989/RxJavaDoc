@@ -39,4 +39,6 @@ dependencies {
 
     //webview
     implementation 'com.thefinestartist:finestwebview:1.2.7'
+
+    implementation 'com.gjiazhe:wavesidebar:1.3'
 }

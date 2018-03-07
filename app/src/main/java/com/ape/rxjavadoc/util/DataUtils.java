@@ -33,7 +33,9 @@ import com.ape.rxjavadoc.entitiy.Operator;
 import com.ape.rxjavadoc.entitiy.PinnedHeaderEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -44,51 +46,73 @@ public class DataUtils {
     private static final String DEFAULT = "默认线程";
     private static final String TRAMPOLINE = "trampoline";
     private static final String IMMEDIATE = "immediate";
+    private static final String[] HEAD_NAME = new String[]{"RxJava 2.x", "RxJava 介绍", "创建操作",
+            "变换操作", "过滤操作", "结合操作", "错误处理", "辅助操作", "条件和布尔操作", "算术和聚合操作",
+            "异步操作", "连接操作", "阻塞操作", "字符串操作", "其他的相关操作"};
+    public static final String[] HEAD_NAME_INDEX = new String[]{" 2.x ", "介绍", "创建",
+            "变换", "过滤", "结合", "错误", "辅助", "条件", "算术",
+            "异步", "连接", "阻塞", "字符", "其他"};
+    public static final Map<String, Integer> HEAD_INDEX_MAP = new HashMap<>();
 
     public static List<PinnedHeaderEntity<Operator>> getData() {
         List<PinnedHeaderEntity<Operator>> lists = new ArrayList<>();
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "RxJava 2.x"));
-        getRxJava2List(lists, "RxJava 2.x");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "RxJava 介绍"));
-        getIntroduceList(lists, "RxJava 介绍");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "创建操作"));
-        getCreatingList(lists, "创建操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "变换操作"));
-        getTransformList(lists, "变换操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "过滤操作"));
-        getFilterList(lists, "过滤操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "结合操作"));
-        getCombinList(lists, "结合操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "错误处理"));
-        getErrorList(lists, "错误处理");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "辅助操作"));
-        getUtilityList(lists, "辅助操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "条件和布尔操作"));
-        getConditionalList(lists, "条件和布尔操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "算术和聚合操作"));
-        getMathList(lists, "算术和聚合操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "异步操作"));
-        getSayncList(lists, "异步操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "连接操作"));
-        getConnectList(lists, "连接操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "阻塞操作"));
-        getBlockList(lists, "阻塞操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "字符串操作"));
-        getStringList(lists, "字符串操作");
-        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, "其他的相关操作"));
-        getOthersList(lists, "其他的相关操作");
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[0]));
+        getRxJava2List(lists, HEAD_NAME[0]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[0], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[1]));
+        getIntroduceList(lists, HEAD_NAME[1]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[1], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[2]));
+        getCreatingList(lists, HEAD_NAME[2]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[2], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[3]));
+        getTransformList(lists, HEAD_NAME[3]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[3], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[4]));
+        getFilterList(lists, HEAD_NAME[4]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[4], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[5]));
+        getCombinList(lists, HEAD_NAME[5]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[5], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[6]));
+        getErrorList(lists, HEAD_NAME[6]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[6], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[7]));
+        getUtilityList(lists, HEAD_NAME[7]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[7], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[8]));
+        getConditionalList(lists, HEAD_NAME[8]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[8], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[9]));
+        getMathList(lists, HEAD_NAME[9]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[9], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[10]));
+        getSayncList(lists, HEAD_NAME[10]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[10], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[11]));
+        getConnectList(lists, HEAD_NAME[11]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[11], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[12]));
+        getBlockList(lists, HEAD_NAME[12]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[12], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[13]));
+        getStringList(lists, HEAD_NAME[13]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[13], lists.size() - 1);
+        lists.add(new PinnedHeaderEntity<Operator>(null, BaseHeaderAdapter.TYPE_HEADER, HEAD_NAME[14]));
+        getOthersList(lists, HEAD_NAME[14]);
+        HEAD_INDEX_MAP.put(HEAD_NAME_INDEX[14], lists.size() - 1);
         return lists;
     }
 
     private static void getRxJava2List(List<PinnedHeaderEntity<Operator>> operators, String pinnedHeaderName) {
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("RxJava2.x有什么不同", DEFAULT, "RxJava2.x与RxJava1.x的区别", CommonString.SPLASH_INDEX_URL, OperatorsUrl.R_2_INDEX),
+                new Operator("RxJava2.x有什么不同", "", "RxJava2.x与RxJava1.x的区别", CommonString.SPLASH_INDEX_URL, OperatorsUrl.R_2_INDEX),
                 BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("Flowable", DEFAULT, "Flowable操作符的使用", CommonString.SPLASH_INDEX_URL, OperatorsUrl.R_2_FLOWABLE),
+                new Operator("Flowable", "", "Flowable操作符的使用", CommonString.SPLASH_INDEX_URL, OperatorsUrl.R_2_FLOWABLE),
                 BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("其他相关类", DEFAULT, "Single Completable Subject/Processor", CommonString.SPLASH_INDEX_URL, OperatorsUrl.R_2_OTHER),
+                new Operator("其他相关类", "", "Single Completable Subject/Processor", CommonString.SPLASH_INDEX_URL, OperatorsUrl.R_2_OTHER),
                 BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
     }
 
@@ -318,19 +342,19 @@ public class DataUtils {
 
     private static void getIntroduceList(List<PinnedHeaderEntity<Operator>> operators, String pinnedHeaderName) {
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("ReactiveX", DEFAULT, "什么是Rx，Rx的理念和优势", CommonString.SPLASH_INDEX_URL, OperatorsUrl.INTRODUCE), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("ReactiveX", "", "什么是Rx，Rx的理念和优势", CommonString.SPLASH_INDEX_URL, OperatorsUrl.INTRODUCE), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("RxJava入门指南", DEFAULT, "RxJava入门指南", CommonString.SPLASH_INDEX_URL, OperatorsUrl.GUIDE_OPEN), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("RxJava入门指南", "", "RxJava入门指南", CommonString.SPLASH_INDEX_URL, OperatorsUrl.GUIDE_OPEN), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("RxJava使用示例", DEFAULT, "RxJava使用示例", CommonString.SPLASH_INDEX_URL, OperatorsUrl.SAMPLE_FIRST), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("RxJava使用示例", "", "RxJava使用示例", CommonString.SPLASH_INDEX_URL, OperatorsUrl.SAMPLE_FIRST), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("Observables", DEFAULT, "简要介绍Observable的观察者模型", CommonString.OBSERVABLES, OperatorsUrl.OBSERVABLES), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("Observables", "", "简要介绍Observable的观察者模型", CommonString.OBSERVABLES, OperatorsUrl.OBSERVABLES), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("Single", DEFAULT, "一种特殊的只发射单个值的Observable", CommonString.SPLASH_INDEX_URL, OperatorsUrl.SINGLE), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("Single", "", "一种特殊的只发射单个值的Observable", CommonString.SPLASH_INDEX_URL, OperatorsUrl.SINGLE), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("Subject", DEFAULT, "Observable和Observer的复合体，也是二者的桥梁", CommonString.SUBJECT, OperatorsUrl.SUBJECT), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("Subject", "", "Observable和Observer的复合体，也是二者的桥梁", CommonString.SUBJECT, OperatorsUrl.SUBJECT), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
         operators.add(new PinnedHeaderEntity<>(
-                new Operator("Scheduler", DEFAULT, "介绍了各种异步任务调度和默认调度器", CommonString.SPLASH_INDEX_URL, OperatorsUrl.SCHEDULE), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
+                new Operator("Scheduler", "", "介绍了各种异步任务调度和默认调度器", CommonString.SPLASH_INDEX_URL, OperatorsUrl.SCHEDULE), BaseHeaderAdapter.TYPE_DATA, pinnedHeaderName));
     }
 
     private static void getCreatingList(List<PinnedHeaderEntity<Operator>> operators, String pinnedHeaderName) {
